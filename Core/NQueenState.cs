@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Core
 {
-    class NQueenState : AbstractState
+    public class NQueenState : AbstractState
     {
         private int n;
         private int[] displacement;
@@ -31,7 +31,7 @@ namespace Core
             }
         }
 
-        private NQueenState Move(int n, int m)
+        public NQueenState Move(int n, int m)
         {
             if(!IsOperator(n,m))
                 return null;
@@ -57,14 +57,14 @@ namespace Core
 
         public override bool IsGoalState()
         {
-            for (int i = 0; i < this.n; i++)
+            for (int i = 0; i < this.n-1; i++)
             {
-                for (int j = 0; j  < this.n; j ++)
+                for (int j = i + 1; j  < this.n; j ++)
                 {
                     //check if there are any Queens on the same row
                     if (this.displacement[i] == this.displacement[j])
                         return false;
-                    //check if there are any Queens ont the same diagonal
+                    //check if there are any Queens on the same diagonal
                     if (Math.Abs(i - j) == Math.Abs(this.displacement[i] - this.displacement[j]))
                         return false;
                 }
@@ -83,13 +83,26 @@ namespace Core
 
         public override AbstractState SuperOperator(int i)
         {
-            if (i >= (this.n ^ 2)) return null;
+            if (i >= (this.n * this.n)) return null;
             int n = i / this.n;
             int m = i % this.n;
             return Move(n, m);
         }
 
-
+        public override string ToString()
+        {
+            StringBuilder builder = new StringBuilder();
+            for (int i = 0; i < this.n; i++)
+            {
+                for (int j = 0; j < this.n; j++)
+                {
+                    if (this.displacement[i] == j) builder.Append('Q');
+                    else builder.Append('-');
+                }
+                builder.Append('\n');
+            }
+            return builder.ToString();
+        }
 
         public object Clone()
         {

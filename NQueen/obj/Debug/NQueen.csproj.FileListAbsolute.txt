@@ -1,0 +1,10 @@
+C:\Users\olegd\source\repos\NQueen\NQueen\bin\Debug\NQueen.exe.config
+C:\Users\olegd\source\repos\NQueen\NQueen\bin\Debug\NQueen.exe
+C:\Users\olegd\source\repos\NQueen\NQueen\bin\Debug\NQueen.pdb
+C:\Users\olegd\source\repos\NQueen\NQueen\bin\Debug\Core.dll
+C:\Users\olegd\source\repos\NQueen\NQueen\bin\Debug\Core.pdb
+C:\Users\olegd\source\repos\NQueen\NQueen\obj\Debug\NQueen.csproj.AssemblyReference.cache
+C:\Users\olegd\source\repos\NQueen\NQueen\obj\Debug\NQueen.csproj.CoreCompileInputs.cache
+C:\Users\olegd\source\repos\NQueen\NQueen\obj\Debug\NQueen.csproj.CopyComplete
+C:\Users\olegd\source\repos\NQueen\NQueen\obj\Debug\NQueen.exe
+C:\Users\olegd\source\repos\NQueen\NQueen\obj\Debug\NQueen.pdb
