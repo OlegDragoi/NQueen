@@ -13,7 +13,7 @@ namespace NQueen
         static void Main(string[] args)
         {
             Random rnd = new Random();
-            int n = 9;
+            int n = 5;
             int nn = n * n;
             NQueenState state = new NQueenState(n);
             Console.WriteLine(state);
@@ -25,7 +25,7 @@ namespace NQueen
                 Console.SetCursorPosition(0, 0);
                 Console.WriteLine(state);
                 //Console.WriteLine(move);
-                //Thread.Sleep(10);
+                Thread.Sleep(100);
             }
 
             Console.ReadKey();

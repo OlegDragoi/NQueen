@@ -41,7 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AbstractNode.cs" />
     <Compile Include="AbstractState.cs" />
+    <Compile Include="NQueenNode.cs" />
     <Compile Include="NQueenState.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
