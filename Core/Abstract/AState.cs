@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Core
 {
-    public abstract class AbstractState : ICloneable
+    public abstract class AState : ICloneable
     {
         public abstract bool IsState();
         public abstract bool IsGoalState();
-        public abstract AbstractState SuperOperator(int i);
+        public abstract AState SuperOperator(int i);
 
         public object Clone()
         {

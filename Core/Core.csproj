@@ -41,8 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AbstractNode.cs" />
-    <Compile Include="AbstractState.cs" />
+    <Compile Include="Abstract\ANode.cs" />
+    <Compile Include="Abstract\AState.cs" />
     <Compile Include="NQueenNode.cs" />
     <Compile Include="NQueenState.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

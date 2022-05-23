@@ -25,7 +25,7 @@ namespace NQueen
                 Console.SetCursorPosition(0, 0);
                 Console.WriteLine(state);
                 //Console.WriteLine(move);
-                Thread.Sleep(100);
+                Thread.Sleep(10);
             }
 
             Console.ReadKey();

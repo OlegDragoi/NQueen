@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Core
 {
-    public class NQueenState : AbstractState
+    public class NQueenState : AState
     {
         private int n;
         private int[] displacement;
@@ -14,6 +14,7 @@ namespace Core
         public NQueenState(int n)
         {
             this.n = n;
+            this.nrOfOperators = (int)Math.Pow(this.n, 2);
             this.displacement = new int[n];
             for (int i = 0; i < n; i++)
             {
@@ -24,13 +25,15 @@ namespace Core
         public NQueenState(int[] dsp)
         {
             this.n = dsp.Length;
-            this.displacement = new int[dsp.Length];
+            this.nrOfOperators = (int)Math.Pow(this.n, 2);
+            this.displacement = new int[this.n];
             for (int i = 0; i < n; i++)
             {
                 this.displacement[i] = dsp[i];
             }
         }
 
+        public int GridSize { get { return this.n; } }
         public NQueenState Move(int n, int m)
         {
             if(!IsOperator(n,m))
@@ -81,7 +84,7 @@ namespace Core
             return true;
         }
 
-        public override AbstractState SuperOperator(int i)
+        public override AState SuperOperator(int i)
         {
             if (i >= (this.n * this.n)) return null;
             int n = i / this.n;
