@@ -11,7 +11,7 @@ namespace Core
         protected AState state;
         protected ANode parent;
         protected int depth;
-        protected virtual int NrOfOperators { get { return state.NrOfOperators; } }
+        public virtual int NrOfOperators { get { return state.NrOfOperators; } }
 
         protected ANode() { }
         public ANode(AState startState)
@@ -28,8 +28,9 @@ namespace Core
         }
 
         public ANode Parent { get { return this.parent; } }
+        public abstract ANode SuperOperator(int i);
         public AState State { get { return this.state; } }
-        public int Depth { get { return this.depth; } }
+        public int Depth { get { return this.depth; } set { this.depth = value; } }
         public bool IsTerminal { get { return this.state.IsGoalState(); } }
 
         //public abstract List<ANode> Expand();

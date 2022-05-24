@@ -39,13 +39,13 @@ namespace Core
             if(!IsOperator(n,m))
                 return null;
 
-            NQueenState actual = (NQueenState)this.Clone();
+            int actualPlace = this.displacement[n];
 
             this.displacement[n] = m;
 
             if (!IsState())
             {
-                this.displacement[n] = actual.displacement[n];
+                this.displacement[n] = actualPlace;
                 return null;
             }
                 
@@ -107,10 +107,13 @@ namespace Core
             return builder.ToString();
         }
 
-        public object Clone()
-        {
-            NQueenState clone = new NQueenState(this.displacement);
-            return clone;
-        }
+
+        //Memory leak ahead. Don't know how to fix...
+
+        //public override object Clone()
+        //{
+        //    NQueenState clone = new NQueenState(this.displacement);
+        //    return clone;
+        //}
     }
 }

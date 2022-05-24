@@ -15,7 +15,7 @@ namespace Core
         public virtual int NrOfOperators { get { return nrOfOperators; } }
         public abstract AState SuperOperator(int i);
 
-        public object Clone()
+        public virtual object Clone()
         {
             return this.MemberwiseClone();
         }

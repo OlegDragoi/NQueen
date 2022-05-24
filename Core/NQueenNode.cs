@@ -24,19 +24,21 @@ namespace Core
             return newNodes;
         }
 
-        public NQueenNode SuperOperator(int i)
+        public override ANode SuperOperator(int i)
         {
             NQueenNode node = new NQueenNode(this);
-            if (this.State.SuperOperator(i) == null) return null;
+            if (node.State.SuperOperator(i) == null) return null;
             return node;
         }
 
         public override object Clone()
         {
-            NQueenNode clone = new NQueenNode();
-            clone.parent = this.parent;
-            clone.state = (NQueenState)this.state.Clone();
-            clone.depth = this.depth;
+            NQueenNode clone = new NQueenNode
+            {
+                parent = this.parent,
+                state = (NQueenState)this.state.Clone(),
+                depth = this.depth
+            };
             return clone;
         }
     }

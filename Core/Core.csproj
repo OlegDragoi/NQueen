@@ -42,10 +42,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Abstract\ANode.cs" />
+    <Compile Include="Abstract\ASolutionFinder.cs" />
     <Compile Include="Abstract\AState.cs" />
     <Compile Include="NQueenNode.cs" />
     <Compile Include="NQueenState.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SolutionFinders\BackTrackFinder.cs" />
+    <Compile Include="SolutionFinders\RandomFinder.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
