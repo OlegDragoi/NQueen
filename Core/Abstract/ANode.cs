@@ -24,7 +24,7 @@ namespace Core
         {
             this.state = (AState)parent.state.Clone();
             this.parent = parent;
-            this.depth++;
+            this.depth = parent.depth + 1;
         }
 
         public ANode Parent { get { return this.parent; } }

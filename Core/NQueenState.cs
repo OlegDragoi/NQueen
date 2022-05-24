@@ -110,10 +110,10 @@ namespace Core
 
         //Memory leak ahead. Don't know how to fix...
 
-        //public override object Clone()
-        //{
-        //    NQueenState clone = new NQueenState(this.displacement);
-        //    return clone;
-        //}
+        public override object Clone()
+        {
+            NQueenState clone = new NQueenState(this.displacement);
+            return clone;
+        }
     }
 }
