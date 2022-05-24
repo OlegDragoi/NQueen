@@ -8,10 +8,12 @@ namespace Core
 {
     public abstract class ANode
     {
-        AState state;
-        ANode parent;
-        int depth;
+        protected AState state;
+        protected ANode parent;
+        protected int depth;
+        protected virtual int NrOfOperators { get { return state.NrOfOperators; } }
 
+        protected ANode() { }
         public ANode(AState startState)
         {
             this.state = startState;
@@ -30,14 +32,17 @@ namespace Core
         public int Depth { get { return this.depth; } }
         public bool IsTerminal { get { return this.state.IsGoalState(); } }
 
+        //public abstract List<ANode> Expand();
+
         public override bool Equals(object obj)
         {
             if (!(obj is ANode)) return false;
             ANode other = (ANode)obj;
             return this.state.Equals(other.state);
         }
-        public override string ToString() { return this.state.ToString(); }
 
-        public abstract List<ANode> Expand();
+        public abstract object Clone();
+
+        public override string ToString() { return this.state.ToString(); }
     }
 }

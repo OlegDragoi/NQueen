@@ -8,19 +8,36 @@ namespace Core
 {
     public class NQueenNode : ANode
     {
-        public NQueenNode(AState startState) : base(startState) { }
-        public NQueenNode(ANode node) : base(node) { }
+        private NQueenNode() { }
+        public NQueenNode(NQueenState startState) : base(startState) { }
+        public NQueenNode(NQueenNode node) : base(node) { }
 
-        public override List<ANode> Expand()
+        public List<NQueenNode> Expand()
         {
-            List<ANode> nodes = new List<ANode>();
-            NQueenNode node = this;
-            do
+            List<NQueenNode> newNodes = new List<NQueenNode>();
+            for (int i = 0; i < this.NrOfOperators; i++)
             {
-                nodes.Add(node);
-                node = (NQueenNode)node.Parent;
-            } while (node.Parent != null);
-            return nodes;
+                NQueenNode newNode = new NQueenNode(this);
+                if (newNode.SuperOperator(i) != null)
+                    newNodes.Add(newNode);
+            }
+            return newNodes;
+        }
+
+        public NQueenNode SuperOperator(int i)
+        {
+            NQueenNode node = new NQueenNode(this);
+            if (this.State.SuperOperator(i) == null) return null;
+            return node;
+        }
+
+        public override object Clone()
+        {
+            NQueenNode clone = new NQueenNode();
+            clone.parent = this.parent;
+            clone.state = (NQueenState)this.state.Clone();
+            clone.depth = this.depth;
+            return clone;
         }
     }
 }

@@ -10,6 +10,9 @@ namespace Core
     {
         public abstract bool IsState();
         public abstract bool IsGoalState();
+
+        protected int nrOfOperators;
+        public virtual int NrOfOperators { get { return nrOfOperators; } }
         public abstract AState SuperOperator(int i);
 
         public object Clone()
