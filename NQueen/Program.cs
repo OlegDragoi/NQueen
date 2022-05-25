@@ -14,14 +14,14 @@ namespace NQueen
         static void Main(string[] args)
         {
             Random rnd = new Random();
-            int n = 4;
+            int n = 8;
             {
                 ASolutionFinder rFinder = new RandomFinder(new NQueenNode(new NQueenState(n)));
                 NQueenNode rNode = (NQueenNode)rFinder.FindSolution();
                 Console.WriteLine(rNode);
             }
 
-            ASolutionFinder backFinder = new BackTrackFinder(new NQueenNode(new NQueenState(n)), n);
+            ASolutionFinder backFinder = new BackTrackFinder(new NQueenNode(new NQueenState(n)), n+1);
             NQueenNode bNode = (NQueenNode)backFinder.FindSolution();
             Console.WriteLine(bNode);
 

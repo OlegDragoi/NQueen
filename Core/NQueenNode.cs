@@ -6,11 +6,30 @@ using System.Threading.Tasks;
 
 namespace Core
 {
-    public class NQueenNode : ANode
+    public class NQueenNode : ICloneable
     {
+        private NQueenState state;
+        private NQueenNode parent;
+        private int depth;
+        public int NrOfOperators { get { return state.NrOfOperators; } }
+        public int GridSize { get { return this.state.GridSize; } }
         private NQueenNode() { }
-        public NQueenNode(NQueenState startState) : base(startState) { }
-        public NQueenNode(NQueenNode node) : base(node) { }
+        public NQueenNode(NQueenState startState)
+        {
+            this.state = startState;
+            this.parent = null;
+            this.depth = 0;
+        }
+        public NQueenNode(NQueenNode parent)
+        {
+            this.state = (NQueenState)parent.state.Clone();
+            this.parent = parent;
+            this.depth = parent.depth + 1;
+        }
+
+        public int Depth { get { return this.depth; } set { this.depth = value; } }
+        public NQueenNode Parent { get { return this.parent; } }
+        public bool IsTerminal { get { return this.state.IsGoalState(); } }
 
         public List<NQueenNode> Expand()
         {
@@ -24,14 +43,20 @@ namespace Core
             return newNodes;
         }
 
-        public override ANode SuperOperator(int i)
+        public NQueenNode SuperOperator(int i)
         {
             NQueenNode node = new NQueenNode(this);
-            if (node.State.SuperOperator(i) == null) return null;
+            if (node.state.SuperOperator(i) == null) return null;
             return node;
         }
 
-        public override object Clone()
+        public NQueenNode Move(int n, int m)
+        {
+            return SuperOperator(n*state.GridSize + m);
+        }
+
+
+        public object Clone()
         {
             NQueenNode clone = new NQueenNode
             {
@@ -41,5 +66,7 @@ namespace Core
             };
             return clone;
         }
+
+        public override string ToString() { return this.state.ToString(); }
     }
 }

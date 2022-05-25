@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Core
 {
-    public class NQueenState : AState
+    public class NQueenState : ICloneable
     {
         private int n;
         private int[] displacement;
@@ -58,7 +58,7 @@ namespace Core
             return true;
         }
 
-        public override bool IsGoalState()
+        public bool IsGoalState()
         {
             for (int i = 0; i < this.n-1; i++)
             {
@@ -75,7 +75,7 @@ namespace Core
             return true;
         }
 
-        public override bool IsState()
+        public bool IsState()
         {
             foreach (int item in this.displacement)
             {
@@ -84,7 +84,9 @@ namespace Core
             return true;
         }
 
-        public override AState SuperOperator(int i)
+        private int nrOfOperators;
+        public virtual int NrOfOperators { get { return nrOfOperators; } }
+        public NQueenState SuperOperator(int i)
         {
             if (i >= (this.n * this.n)) return null;
             int n = i / this.n;
@@ -110,7 +112,7 @@ namespace Core
 
         //Memory leak ahead. Don't know how to fix...
 
-        public override object Clone()
+        public object Clone()
         {
             NQueenState clone = new NQueenState(this.displacement);
             return clone;

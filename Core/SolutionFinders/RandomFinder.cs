@@ -9,11 +9,11 @@ namespace Core.SolutionFinders
     public class RandomFinder : ASolutionFinder
     {
         Random rnd = new Random();
-        public RandomFinder(ANode startNode) : base(startNode) { }
+        public RandomFinder(NQueenNode startNode) : base(startNode) { }
 
-        public override ANode FindSolution()
+        public override NQueenNode FindSolution()
         {
-            ANode solution = this.StartNode;
+            NQueenNode solution = this.StartNode;
             while (!solution.IsTerminal)
             {
                 solution = solution.SuperOperator(rnd.Next(solution.NrOfOperators));

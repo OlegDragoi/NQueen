@@ -9,31 +9,31 @@ namespace Core.SolutionFinders
     public class BackTrackFinder : ASolutionFinder
     {
         int depthBound;
-        public BackTrackFinder(ANode startNode) : this(startNode, 0) { }
-        public BackTrackFinder(ANode startNode, int depthBound)
+        public BackTrackFinder(NQueenNode startNode) : this(startNode, startNode.GridSize) { }
+        public BackTrackFinder(NQueenNode startNode, int depthBound)
             : base(startNode)
         {
             this.depthBound = depthBound;
         }
 
-        public override ANode FindSolution()
+        public override NQueenNode FindSolution()
         {
             return Search(StartNode);
         }
 
-        private ANode Search(ANode actualNode)
+        private NQueenNode Search(NQueenNode actualNode)
         {
+            if (actualNode == null) return null;
             int depth = actualNode.Depth;
-            if (depthBound > 0 && depth >= depthBound)
+            if (depthBound > 0 && depth > depthBound)
                 return null;
 
             if (actualNode.IsTerminal)
                 return actualNode;
 
-            for (int i = 0; i < actualNode.NrOfOperators; i++)
+            for (int i = 0; i < depthBound; i++)
             {
-                ANode newNode = actualNode.SuperOperator(i);
-                ANode terminalNode = Search(newNode);
+                NQueenNode terminalNode = Search(actualNode.Move(depth, i));
                 if (terminalNode != null)
                     return terminalNode;
     

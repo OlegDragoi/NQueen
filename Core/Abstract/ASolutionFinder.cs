@@ -8,14 +8,14 @@ namespace Core
 {
     public abstract class ASolutionFinder
     {
-        private ANode startNode;
-        public ASolutionFinder(ANode startNode) { this.startNode = startNode; }
+        private NQueenNode startNode;
+        public ASolutionFinder(NQueenNode startNode) { this.startNode = startNode; }
 
-        public ANode StartNode { get { return this.startNode; } }
+        public NQueenNode StartNode { get { return this.startNode; } }
 
-        public abstract ANode FindSolution();
+        public abstract NQueenNode FindSolution();
 
-        public void PrintSolution(ANode terminalNode)
+        public void PrintSolution(NQueenNode terminalNode)
         {
             if (terminalNode == null)
                 return;
@@ -28,18 +28,18 @@ namespace Core
             //    actualNode = actualNode.Parent;
             //}
 
-            List<ANode> solution = SolutionStepByStep(terminalNode);
-            foreach (ANode node in solution)
+            List<NQueenNode> solution = SolutionStepByStep(terminalNode);
+            foreach (NQueenNode node in solution)
                 Console.WriteLine(node);
         }
-        public List<ANode> SolutionStepByStep(ANode terminalNode)
+        public List<NQueenNode> SolutionStepByStep(NQueenNode terminalNode)
         {
-            List<ANode> solution = new List<ANode>();
+            List<NQueenNode> solution = new List<NQueenNode>();
             if (terminalNode == null)
                 return solution;
 
 
-            ANode actualNode = terminalNode;
+            NQueenNode actualNode = terminalNode;
             while (actualNode != null)
             {
                 solution.Add(actualNode);
