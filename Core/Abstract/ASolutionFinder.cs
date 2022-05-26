@@ -19,15 +19,6 @@ namespace Core
         {
             if (terminalNode == null)
                 return;
-
-            //Stack<Node> solution = new Stack<Node>();
-            //Node actualNode = terminalNode;
-            //while (actualNode != null)
-            //{
-            //    solution.Push(actualNode);
-            //    actualNode = actualNode.Parent;
-            //}
-
             List<NQueenNode> solution = SolutionStepByStep(terminalNode);
             foreach (NQueenNode node in solution)
                 Console.WriteLine(node);
