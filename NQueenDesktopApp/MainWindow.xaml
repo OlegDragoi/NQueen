@@ -31,7 +31,7 @@
         <Grid x:Name="Controls"
               Grid.Column="1">
             <Label Content="Grid size:" HorizontalAlignment="Left" Margin="5,5,5,0" VerticalAlignment="Top"/>
-            <TextBox x:Name="TbSize" HorizontalAlignment="Right" Margin="0,8,5,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30" TextChanged="TbSize_TextChanged"/>
+            <TextBox x:Name="TbSize" Text="8" HorizontalAlignment="Right" Margin="0,8,5,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30" TextChanged="TbSize_TextChanged"/>
             <Button x:Name="Rnd"
                     Margin="5,31,5,0"
                     Content="Random Solution"
@@ -42,6 +42,9 @@
                     Content="BackTracked Solution"
                     Width="Auto"
                     VerticalAlignment="Top" Click="BackTrack_Click"/>
+            <Label x:Name="LblIndex" Content="0" HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Bottom"/>
+            <Button x:Name="BtnDecrease" Content="-1" HorizontalAlignment="Left" Margin="5,0,0,5" VerticalAlignment="Bottom" Width="60" Click="BtnDecrease_Click"/>
+            <Button x:Name="BtnIncrease" Content="+1" HorizontalAlignment="Right" Margin="0,0,5,5" VerticalAlignment="Bottom" Width="60" Click="BtnIncrease_Click"/>
         </Grid>
     </Grid>
 </Window>

@@ -23,6 +23,7 @@ namespace NQueenDesktopApp
     public partial class MainWindow : Window
     {
         int n = 8;
+        int curentIndex = 0;
         BitmapImage source = new BitmapImage(new Uri("/queen.png", UriKind.Relative));
         NQueenNode actualNode;
         List<NQueenNode> solution;
@@ -147,6 +148,7 @@ namespace NQueenDesktopApp
                     }
                 );
             }
+            LblIndex.Content = node.Depth;
         }
 
         private void Recalculate(ASolutionFinder finder)
@@ -154,6 +156,7 @@ namespace NQueenDesktopApp
             actualNode = finder.FindSolution();
             DrawChessBoard(actualNode);
             solution = actualNode.NodeStepByStep();
+            curentIndex = actualNode.Depth;
             GC.Collect();
             GC.WaitForPendingFinalizers();
         }
@@ -179,6 +182,18 @@ namespace NQueenDesktopApp
         private void BackTrack_Click(object sender, RoutedEventArgs e)
         {
             Recalculate(new BackTrackFinder(n));
+        }
+
+        private void BtnDecrease_Click(object sender, RoutedEventArgs e)
+        {
+            if (--curentIndex < 0) curentIndex = 0;
+            DrawChessBoard(solution[curentIndex]);
+        }
+
+        private void BtnIncrease_Click(object sender, RoutedEventArgs e)
+        {
+            if (++curentIndex > solution.Count - 1) curentIndex = solution.Count - 1;
+            DrawChessBoard(solution[curentIndex]);
         }
     }
 }

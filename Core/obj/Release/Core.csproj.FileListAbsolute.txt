@@ -1,0 +1,6 @@
+C:\Users\olegd\source\repos\NQueen\Core\bin\Release\Core.dll
+C:\Users\olegd\source\repos\NQueen\Core\bin\Release\Core.pdb
+C:\Users\olegd\source\repos\NQueen\Core\obj\Release\Core.csproj.AssemblyReference.cache
+C:\Users\olegd\source\repos\NQueen\Core\obj\Release\Core.csproj.CoreCompileInputs.cache
+C:\Users\olegd\source\repos\NQueen\Core\obj\Release\Core.dll
+C:\Users\olegd\source\repos\NQueen\Core\obj\Release\Core.pdb
