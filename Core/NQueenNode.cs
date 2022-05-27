@@ -13,7 +13,8 @@ namespace Core
         private int depth;
         public int NrOfOperators { get { return state.NrOfOperators; } }
         public int GridSize { get { return this.state.GridSize; } }
-        private NQueenNode() { }
+        public NQueenNode(int n):this(new NQueenState(n)){}
+        public NQueenNode() { }
         public NQueenNode(NQueenState startState)
         {
             this.state = startState;
@@ -27,6 +28,7 @@ namespace Core
             this.depth = parent.depth + 1;
         }
 
+        public NQueenState State { get { return (NQueenState)this.state.Clone(); } }
         public int Depth { get { return this.depth; } set { this.depth = value; } }
         public NQueenNode Parent { get { return this.parent; } }
         public bool IsTerminal { get { return this.state.IsGoalState(); } }
@@ -41,6 +43,21 @@ namespace Core
                     newNodes.Add(newNode);
             }
             return newNodes;
+        }
+        public List<NQueenNode> NodeStepByStep()
+        {
+            List<NQueenNode> solution = new List<NQueenNode>();
+            if (this == null)
+                return solution;
+
+
+            NQueenNode actualNode = this;
+            while (actualNode != null)
+            {
+                solution.Insert(0, actualNode);
+                actualNode = actualNode.Parent;
+            }
+            return solution;
         }
 
         public NQueenNode SuperOperator(int i)

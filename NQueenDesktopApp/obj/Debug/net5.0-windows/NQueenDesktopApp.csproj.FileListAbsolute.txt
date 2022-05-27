@@ -23,3 +23,5 @@ C:\Users\olegd\source\repos\NQueen\NQueenDesktopApp\obj\Debug\net5.0-windows\NQu
 C:\Users\olegd\source\repos\NQueen\NQueenDesktopApp\obj\Debug\net5.0-windows\ref\NQueenDesktopApp.dll
 C:\Users\olegd\source\repos\NQueen\NQueenDesktopApp\obj\Debug\net5.0-windows\NQueenDesktopApp.pdb
 C:\Users\olegd\source\repos\NQueen\NQueenDesktopApp\obj\Debug\net5.0-windows\NQueenDesktopApp.genruntimeconfig.cache
+C:\Users\olegd\source\repos\NQueen\NQueenDesktopApp\obj\Debug\net5.0-windows\NQueenDesktopApp.Properties.Resources.resources
+C:\Users\olegd\source\repos\NQueen\NQueenDesktopApp\obj\Debug\net5.0-windows\NQueenDesktopApp.csproj.GenerateResource.cache

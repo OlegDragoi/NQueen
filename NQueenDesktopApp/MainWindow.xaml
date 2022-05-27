@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:NQueenDesktopApp"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Title="MainWindow" Height="450" Width="800" SizeChanged="Window_SizeChanged">
+    <Grid x:Name="Screen">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="*"/>
@@ -16,6 +16,7 @@
                 Grid.Column="0"
                 Height="Auto" Width="{Binding RelativeSource={RelativeSource Self},
                                               Path=ActualHeight}">
+            <!--
             <Line Stroke="Black"
                   X1="20" X2="20"
                   Y1="{Binding RelativeSource={RelativeSource Self},
@@ -24,13 +25,23 @@
                   X1="{Binding RelativeSource={RelativeSource Self},
                                Path=Parent.ActualWidth}"
                   Y1="20" Y2="20"/>
+            -->
         </Canvas>
 
         <Grid x:Name="Controls"
               Grid.Column="1">
-            <Button x:Name="Button1"
-                Width="Auto"/>
+            <Label Content="Grid size:" HorizontalAlignment="Left" Margin="5,5,5,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="TbSize" HorizontalAlignment="Right" Margin="0,8,5,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30" TextChanged="TbSize_TextChanged"/>
+            <Button x:Name="Rnd"
+                    Margin="5,31,5,0"
+                    Content="Random Solution"
+                    Width="Auto"
+                    VerticalAlignment="Top" Click="Rnd_Click"/>
+            <Button x:Name="BackTrack"
+                    Margin="5,56,5,0"
+                    Content="BackTracked Solution"
+                    Width="Auto"
+                    VerticalAlignment="Top" Click="BackTrack_Click"/>
         </Grid>
-
     </Grid>
 </Window>

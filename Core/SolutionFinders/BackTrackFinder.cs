@@ -15,6 +15,10 @@ namespace Core.SolutionFinders
         {
             this.depthBound = depthBound;
         }
+        public BackTrackFinder(int n) : base(n)
+        {
+            this.depthBound = n;
+        }
 
         public override NQueenNode FindSolution()
         {

@@ -33,6 +33,18 @@ namespace Core
             }
         }
 
+        public int[] Displacemet 
+        { 
+            get
+            {
+                int[] result = new int[this.displacement.Length];
+                for (int i = 0; i < result.Length; i++)
+                {
+                    result[i] = this.displacement[i];
+                }
+                return result;
+            }
+        }
         public int GridSize { get { return this.n; } }
         public NQueenState Move(int n, int m)
         {
@@ -111,7 +123,6 @@ namespace Core
 
 
         //Memory leak ahead. Don't know how to fix...
-
         public object Clone()
         {
             NQueenState clone = new NQueenState(this.displacement);

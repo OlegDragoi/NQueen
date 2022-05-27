@@ -10,6 +10,7 @@ namespace Core.SolutionFinders
     {
         Random rnd = new Random();
         public RandomFinder(NQueenNode startNode) : base(startNode) { }
+        public RandomFinder(int n) : base(n) { }
 
         public override NQueenNode FindSolution()
         {

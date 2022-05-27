@@ -16,13 +16,13 @@ namespace NQueen
             Random rnd = new Random();
             int n = 8;
             {
-                ASolutionFinder rFinder = new RandomFinder(new NQueenNode(new NQueenState(n)));
-                NQueenNode rNode = (NQueenNode)rFinder.FindSolution();
+                ASolutionFinder rFinder = new RandomFinder(n);
+                NQueenNode rNode = rFinder.FindSolution();
                 Console.WriteLine(rNode);
             }
 
-            ASolutionFinder backFinder = new BackTrackFinder(new NQueenNode(new NQueenState(n)), n+1);
-            NQueenNode bNode = (NQueenNode)backFinder.FindSolution();
+            ASolutionFinder backFinder = new BackTrackFinder(n);
+            NQueenNode bNode = backFinder.FindSolution();
             Console.WriteLine(bNode);
 
             Console.ReadKey();
