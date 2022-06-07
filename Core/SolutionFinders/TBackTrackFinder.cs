@@ -57,7 +57,7 @@ namespace Core.SolutionFinders
 
             try
             {
-                for (int i = 0; i < depthBound; i++)
+                for (int i = 0; i < actualNode.GridSize; i++)
                 {
                     lock (threads)
                     {

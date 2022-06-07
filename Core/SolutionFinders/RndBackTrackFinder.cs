@@ -6,16 +6,17 @@ using System.Threading.Tasks;
 
 namespace Core.SolutionFinders
 {
-    public class BackTrackFinder : ASolutionFinder
+    public class RndBackTrackFinder : ASolutionFinder
     {
+        Random rnd = new Random();
         int depthBound;
-        public BackTrackFinder(NQueenNode startNode) : this(startNode, startNode.GridSize) { }
-        public BackTrackFinder(NQueenNode startNode, int depthBound)
+        public RndBackTrackFinder(NQueenNode startNode) : this(startNode, startNode.GridSize) { }
+        public RndBackTrackFinder(NQueenNode startNode, int depthBound)
             : base(startNode)
         {
             this.depthBound = depthBound;
         }
-        public BackTrackFinder(int n) : base(n)
+        public RndBackTrackFinder(int n) : base(n)
         {
             this.depthBound = n;
         }
@@ -35,9 +36,13 @@ namespace Core.SolutionFinders
             if (actualNode.IsTerminal)
                 return actualNode;
 
+            List<int> spots = Enumerable.Range(1, actualNode.GridSize).ToList();
             for (int i = 0; i < actualNode.GridSize; i++)
             {
-                NQueenNode terminalNode = Search(actualNode.Move(depth, i));
+                int rIndex = rnd.Next(spots.Count);
+                int chosenIndex = spots[rIndex];
+                spots.RemoveAt(rIndex);
+                NQueenNode terminalNode = Search(actualNode.Move(depth, chosenIndex));
                 if (terminalNode != null)
                     return terminalNode;
     

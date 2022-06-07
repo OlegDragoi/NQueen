@@ -42,6 +42,11 @@
                     Content="BackTracked Solution"
                     Width="Auto"
                     VerticalAlignment="Top" Click="BackTrack_Click"/>
+            <Button x:Name="RndBackTrack_Copy"
+                Margin="5,81,5,0"
+                Content="Randomized BackTrack Solution"
+                Width="Auto"
+                VerticalAlignment="Top" Click="RndBackTrack_Copy_Click"/>
             <Label x:Name="LblIndex" Content="0" HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Bottom"/>
             <Button x:Name="BtnDecrease" Content="-1" HorizontalAlignment="Left" Margin="5,0,0,5" VerticalAlignment="Bottom" Width="60" Click="BtnDecrease_Click"/>
             <Button x:Name="BtnIncrease" Content="+1" HorizontalAlignment="Right" Margin="0,0,5,5" VerticalAlignment="Bottom" Width="60" Click="BtnIncrease_Click"/>

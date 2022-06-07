@@ -184,6 +184,11 @@ namespace NQueenDesktopApp
             Recalculate(new BackTrackFinder(n));
         }
 
+        private void RndBackTrack_Copy_Click(object sender, RoutedEventArgs e)
+        {
+            Recalculate(new RndBackTrackFinder(n));
+        }
+
         private void BtnDecrease_Click(object sender, RoutedEventArgs e)
         {
             if (--curentIndex < 0) curentIndex = 0;
