@@ -45,6 +45,7 @@
     <Compile Include="NQueenNode.cs" />
     <Compile Include="NQueenState.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SolutionFinders\TBackTrackFinder.cs" />
     <Compile Include="SolutionFinders\BackTrackFinder.cs" />
     <Compile Include="SolutionFinders\RandomFinder.cs" />
   </ItemGroup>
